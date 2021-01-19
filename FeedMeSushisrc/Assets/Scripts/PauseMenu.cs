@@ -42,6 +42,11 @@ public void Pause ()
   GameIsPaused = true;
 }
 
+public void OpenMainMenu ()
+{
+  SceneManager.LoadScene(0);
+}
+
 
 
 
