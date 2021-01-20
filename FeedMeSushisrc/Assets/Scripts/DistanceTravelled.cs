@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DistanceTravelled : MonoBehaviour
 {
     float Distance = 0;
-    float currentTime = 0;
+    public static float currentTime = 0;
     Vector3 lastPosition;
      
      [SerializeField]
@@ -16,6 +16,7 @@ public class DistanceTravelled : MonoBehaviour
     void Start()
     {
         lastPosition = transform.position;
+        currentTime = 0;
     }
 
     // Update is called once per frame

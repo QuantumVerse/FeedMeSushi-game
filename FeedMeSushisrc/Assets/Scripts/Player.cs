@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
    public float moveSpeed;
    private Vector3 targetPos;
+   private int FramesForGameOver = 60; 
+   private Vector3 LastPosition; 
+  
 
      void Start() 
      {
          targetPos = transform.position;
+         LastPosition = targetPos;
      }
 
      public void Move (Vector3 moveDirection)
@@ -21,8 +26,25 @@ public class Player : MonoBehaviour
      {
          targetPos += Vector3.left;
          transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+        CheckIfGameOver();
 
+     }
 
+     private void CheckIfGameOver()
+     {
+         if(Time.frameCount%FramesForGameOver == 0)
+         {
+             
+             if(Mathf.Abs(transform.position.x - LastPosition.x) < 1)
+             {
+                 PlayerPrefs.SetInt("last_score", (int)DistanceTravelled.currentTime);
+                 SceneManager.LoadScene(2);
+                
+             }
+
+             LastPosition = transform.position;
+            
+         }
      }
 
     
