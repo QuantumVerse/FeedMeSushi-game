@@ -57,7 +57,7 @@ public class SwipeDetection : MonoBehaviour
 
            //testing for pc 
 
-    /*if(fingerDown == false && Input.GetMouseButtonDown(0))
+    if(fingerDown == false && Input.GetMouseButtonDown(0))
            {
                startPos = Input.mousePosition;
                fingerDown = true;
@@ -97,7 +97,7 @@ public class SwipeDetection : MonoBehaviour
             if(fingerDown && Input.GetMouseButtonUp(0))
            {
                fingerDown = false;
-           }    */      
+           }
        
         }
     
