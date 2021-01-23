@@ -9,22 +9,19 @@ public class SwipeDetection : MonoBehaviour
     private Vector2 startPos;
     public int pixelDistToDetect = 50 ;
     private bool fingerDown;
+    private bool isMouseDown = false;
 
   void Update() 
         {
            if(fingerDown == false && Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
            {
                startPos = Input.touches[0].position;
-
-               if ( Mathf.Abs(startPos.x - player.transform.position.z) <3000 && Mathf.Abs(startPos.y - player.transform.position.y) < 3000) 
-           {
                fingerDown = true;
-           }
            }
            
 
           //is our finger touching the screen ?
-           if (fingerDown)
+           if (fingerDown && !isMouseDown)
            {
                //did we swipe up?
                if(Input.touches[0].position.y >= startPos.y + pixelDistToDetect)
@@ -51,7 +48,7 @@ public class SwipeDetection : MonoBehaviour
            }
           if(fingerDown && Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Ended)
           {
-              fingerDown = false;
+            fingerDown = false;
           }
 
 
@@ -61,6 +58,7 @@ public class SwipeDetection : MonoBehaviour
            {
                startPos = Input.mousePosition;
                fingerDown = true;
+               isMouseDown = true;
                Debug.Log("fingerDown");
            }
 
@@ -80,23 +78,22 @@ public class SwipeDetection : MonoBehaviour
                else if(Input.mousePosition.x >= startPos.x + pixelDistToDetect)
 
                {
-                   
                    fingerDown = false;
                    player.Move(Vector3.forward);
                
                }
-
                else if(Input.mousePosition.y <= startPos.y - pixelDistToDetect)
                {
                    fingerDown = false; 
                    player.Move(Vector3.down);
                }
-               
+               isMouseDown = fingerDown;
            }
 
             if(fingerDown && Input.GetMouseButtonUp(0))
            {
                fingerDown = false;
+               isMouseDown = false;
            }
        
         }

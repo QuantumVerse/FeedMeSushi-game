@@ -12,12 +12,21 @@ public GameObject MainMenuButton;
 public TextMeshProUGUI ScoreTextValue;
 public TextMeshProUGUI HighScoreTextValue;
 
-void Start() {
+void Start()
+{
+  SetScores();
+}
+
+void SetScores()
+{
   int lastScore = PlayerPrefs.GetInt("last_score");
   ScoreTextValue.text = lastScore.ToString();
 
-  if (PlayerPrefs.HasKey("best_score")) {
-    if (PlayerPrefs.GetInt("best_score") < lastScore) {
+  // Set High Score
+  if (PlayerPrefs.HasKey("best_score"))
+  {
+    if (PlayerPrefs.GetInt("best_score") < lastScore)
+    {
       PlayerPrefs.SetInt("best_score", lastScore);
     }
   }
@@ -29,13 +38,13 @@ void Start() {
   HighScoreTextValue.text = PlayerPrefs.GetInt("best_score").ToString();
 }
 
-    public void OpenMainMenu ()
+public void OpenMainMenu ()
 {
   SceneManager.LoadScene(0);
 }
    
-   public void ReplayGame ()
-   {
-       SceneManager.LoadScene(1);
-   }
+public void ReplayGame ()
+{
+    SceneManager.LoadScene(1);
+}
 }

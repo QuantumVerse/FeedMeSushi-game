@@ -44,11 +44,13 @@ public void Pause ()
 
 public void OpenMainMenu ()
 {
+  GameIsPaused = false;
   SceneManager.LoadScene(0);
 }
 
 public void QuitGame ()
 {
+  GameIsPaused = false;
   Application.Quit();
 }
 
