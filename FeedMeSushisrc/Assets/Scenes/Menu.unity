@@ -792,7 +792,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FeedMeSushiGameVersion o . i
+  m_text: Feed Me Sushi GameVersion o . i
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ac2457d885209784e8d2bc7d7cdf2f62, type: 2}
   m_sharedMaterial: {fileID: -2579951058306844649, guid: ac2457d885209784e8d2bc7d7cdf2f62,
