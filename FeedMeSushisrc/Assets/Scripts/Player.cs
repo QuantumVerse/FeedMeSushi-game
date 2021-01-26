@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
    public float moveSpeed;
    private Vector3 targetPos;
-   private int FramesForGameOver = 1 * 30; // Assuming 1 sec and 30 FPS
+   private int FramesForGameOver = (int) (0.5 * 30); // Assuming 0.5 sec and 30 FPS
    private Vector3 LastPosition; 
   
 
@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 
      public void Move (Vector3 moveDirection)
      {
-         targetPos += moveDirection * 100;
+         targetPos += 10*moveDirection;
      }
 
      private void Update() 
