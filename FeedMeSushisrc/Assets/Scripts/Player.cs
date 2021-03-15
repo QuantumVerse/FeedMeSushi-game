@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
      public void Move (Vector3 moveDirection)
      {
-         targetPos += 10*moveDirection;
+         targetPos += 1*moveDirection;
      }
 
      private void Update() 
